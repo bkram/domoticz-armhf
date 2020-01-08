@@ -22,7 +22,7 @@ Uses a config directory in /home/domoticz/config, passes devices for P1 and Z-Wa
 
 ```bash
 docker create \
-  --name=domoticz-armf \
+  --name=domoticz-armhf \
   -e PUID=1001 \
   -e PGID=1001 \
   -e TZ=Europe/Amsterdam \
@@ -31,7 +31,7 @@ docker create \
   --restart unless-stopped \
   --device /dev/ttyUSB0:/dev/ttyUSB0 \
   --device /dev/ttyUSB-ZStick-5G:/dev/ttyUSB-ZStick-5G \
-  tikatuka/domoticz-armf:latest
+  tikatuka/domoticz-armhf:latest
 ```
 
 ## Start Container
