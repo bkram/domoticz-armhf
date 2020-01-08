@@ -20,3 +20,4 @@ RUN curl -L install.domoticz.com -o install_domoticz.sh && \
     rm -rf www/js/domoticz.js.gz install_domoticz*.sh server_cert.pem update*
 
 ENTRYPOINT ["/init"]
+VOLUME /config
