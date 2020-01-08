@@ -1,0 +1,28 @@
+#!/usr/bin/with-contenv bash
+
+# copy default scripts from install
+[[ ! -e /config/scripts ]] && \
+	cp -R /var/lib/domoticz/scripts /config/
+
+# copy db if needed
+[[ ! -e /config/domoticz.db ]] && \
+	cp /var/lib/domoticz/domoticz.db /config/
+
+# copy .ssh directory if exists
+[[ -e /config/.ssh ]] && \
+	cp -R /config/.ssh /var/lib/domoticz/
+	chmod 700 /var/lib/domoticz/.ssh
+	chmod 600 /var/lib/domoticz/.ssh/id_rsa*
+
+# set permissions for /config
+chown -R domoticz:domoticz \
+	/config \
+	/tmp \
+	/var/lib/domoticz
+chmod -R 764 \
+	/config
+
+
+
+
+
