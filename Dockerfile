@@ -1,12 +1,10 @@
-FROM debian:buster-slim
-
+FROM debian:stretch-slim
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
-RUN apt-get update && apt-get upgrade && \
-    apt-get install -y curl unzip wget \
-    python3-requests python3-paramiko libusb-dev libpython3.7-dev libcap2-bin && \
-    curl -SL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC / && \
-    useradd domoticz -M -d /var/lib/domoticz -u 1001 && usermod -a -G dialout domoticz
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y curl unzip wget iproute2 \
+    python3-requests python3-paramiko libusb-dev libpython3.5-dev libcap2-bin && \
+    curl -SL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC / 
 
 COPY root/ /
 

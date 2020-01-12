@@ -1,5 +1,16 @@
 #!/usr/bin/with-contenv bash
 
+# add domoticz user with uid and gid from command line when given
+if [ -z "$PUID"  ] && [ -z "$GUID" ]; then
+    useradd domoticz -M -d /var/lib/domoticz
+else
+    groupadd domoticz -g $PGID
+    useradd domoticz -M -d /var/lib/domoticz -u $PUID -g $PGID
+fi
+
+# allow domitcz user access to dialout (serial connections)
+usermod -a -G dialout domoticz
+
 # copy default scripts from install
 [[ ! -e /config/scripts ]] && \
 	cp -R /var/lib/domoticz/scripts /config/
