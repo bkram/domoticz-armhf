@@ -1,9 +1,10 @@
-FROM schachr/raspbian-stretch:latest
-LABEL AUTHOR="Bkram <mrdebruijn@gmail.com>"
+FROM debian:buster-slim
+
+LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
 RUN apt-get update && apt-get upgrade && \
-    apt-get install -y net-tools netcat apt-utils whiptail git curl unzip wget sudo cron \
-    libudev-dev python3-requests python3-paramiko libusb-dev libpython3.5-dev libcap2-bin && \
+    apt-get install -y curl unzip wget \
+    python3-requests python3-paramiko libusb-dev libpython3.7-dev libcap2-bin && \
     curl -SL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC / && \
     useradd domoticz -M -d /var/lib/domoticz -u 1001 && usermod -a -G dialout domoticz
 
