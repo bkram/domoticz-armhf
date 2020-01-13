@@ -11,27 +11,23 @@ fi
 # allow domitcz user access to dialout (serial connections)
 usermod -a -G dialout domoticz
 
+# create dir for keys if needed
+[[ ! -e /config/keys ]] && \
+    mkdir /config/keys
+
 # copy default scripts from install
 [[ ! -e /config/scripts ]] && \
-	cp -R /var/lib/domoticz/scripts /config/
+    cp -R /var/lib/domoticz/scripts /config/
 
 # copy db if needed
 [[ ! -e /config/domoticz.db ]] && \
-	cp /var/lib/domoticz/domoticz.db /config/
-
-# copy .ssh directory if exists
-[[ -e /config/.ssh ]] && \
-	cp -R /config/.ssh /var/lib/domoticz/
-	chmod 700 /var/lib/domoticz/.ssh
-	chmod 600 /var/lib/domoticz/.ssh/id_rsa*
+    touch /config/domoticz.db
 
 # set permissions for /config
 chown -R domoticz:domoticz \
-	/config \
-	/tmp \
-	/var/lib/domoticz
-chmod -R 764 \
-	/config
+    /config \
+    /var/lib/domoticz
+chmod -R 764 /config
 
 
 

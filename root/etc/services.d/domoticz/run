@@ -4,7 +4,9 @@
 setcap cap_net_raw=+eip /var/lib/domoticz/domoticz
 
 exec \
-	s6-setuidgid domoticz /var/lib/domoticz/domoticz \
-		-userdata /config/ \
-		-dbase /config/domoticz.db \
-		-sslwww 0
+    s6-setuidgid domoticz /var/lib/domoticz/domoticz \
+        -userdata /config/ \
+        -dbase /config/domoticz.db \
+        -www 8080 \
+        -sslwww 8443
+        -sslcert /var/lib/domoticz/server_cert.pem
