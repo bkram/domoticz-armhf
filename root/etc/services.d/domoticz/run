@@ -8,5 +8,5 @@ exec \
         -userdata /config/ \
         -dbase /config/domoticz.db \
         -www 8080 \
-        -sslwww 8443
+        -sslwww 8443 \
         -sslcert /var/lib/domoticz/server_cert.pem
