@@ -1,8 +1,11 @@
-FROM debian:stretch-slim
+#FROM debian:stretch-slim
+FROM balenalib/armv7hf-debian:stretch
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
+COPY qemu-arm-static /usr/bin/
+
 RUN export DEBIAN_FRONTEND=noninteractive && \
-apt-get update  && apt-get --no-install-recommends install -y curl unzip wget iproute2 python3-requests python3-paramiko \
+apt-get update && apt-get --no-install-recommends install -y curl python3-requests python3-paramiko \
 libusb-dev libpython3.5-dev libcap2-bin libcurl3 libcurl3-gnutls &&  rm -rf /var/lib/apt/lists/*  && \
 curl -sSL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC /
 
