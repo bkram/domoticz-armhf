@@ -2,7 +2,7 @@
 FROM balenalib/armv7hf-debian:stretch
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
-COPY qemu-arm-static /usr/bin/
+# COPY qemu-arm-static /usr/bin/
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
 apt-get update && apt-get --no-install-recommends install -y curl python3-requests python3-paramiko \
@@ -15,6 +15,7 @@ RUN curl -sSL https://releases.domoticz.com/releases/release/domoticz_linux_armv
 curl -sSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC . && \ 
 rm -rf www/js/domoticz.js.gz 
 
+EXPOSE 8080
 COPY root/ /
 VOLUME [ "/config" ]
 ENTRYPOINT [ "/init" ]
