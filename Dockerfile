@@ -1,8 +1,5 @@
-#FROM debian:stretch-slim
 FROM balenalib/armv7hf-debian:stretch
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
-
-# COPY qemu-arm-static /usr/bin/
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
 apt-get update && apt-get --no-install-recommends install -y curl python3-requests python3-paramiko \
