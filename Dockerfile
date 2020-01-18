@@ -1,4 +1,4 @@
-FROM registry.tikatuka.nl/tikatuka/debian-jessie-slim-armhf
+FROM registry.tikatuka.nl/tikatuka/debian-stretch-slim-armhf:latest
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
