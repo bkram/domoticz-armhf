@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-debian:stretch
+FROM debian-jessie-slim-armhf
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
