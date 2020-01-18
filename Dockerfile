@@ -1,4 +1,4 @@
-FROM debian-jessie-slim-armhf
+FROM tikatuka/debian-jessie-slim-armhf
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
