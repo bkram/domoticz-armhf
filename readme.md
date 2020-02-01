@@ -2,7 +2,8 @@
 
 ## Preface
 
-Yet another Domoticz Dockerfile as no other images worked how I liked it.
+YADD (Yet another Domoticz Dockerfile)
+Installing latest Domoticz beta on a minimal Debian stretch image (https://doi-janky.infosiftr.net/job/tianon/job/debuerreotype/job/arm32v7/lastSuccessfulBuild/artifact/stretch/slim/rootfs.tar.xz")
 
 Loosely based on two other Domoticz images for armhf:
 - https://hub.docker.com/r/linuxserver/domoticz
@@ -39,4 +40,3 @@ docker create \
 ```bash
 docker container start domoticz-armhf
 ```
-
