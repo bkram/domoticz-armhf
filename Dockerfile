@@ -8,8 +8,8 @@ libusb-dev libpython3.7-dev libcap2-bin && apt install -y curl libcurl4 && rm -r
 curl -ksSL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC /
 
 WORKDIR /var/lib/domoticz
-RUN curl -sSL https://releases.domoticz.com/releases/release/domoticz_linux_armv7l.tgz | tar -xzC . && \ 
-curl -sSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC . && \ 
+RUN curl -ksSL https://releases.domoticz.com/releases/release/domoticz_linux_armv7l.tgz | tar -xzC . && \ 
+curl -ksSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC . && \ 
 rm -rf www/js/domoticz.js.gz 
 
 EXPOSE 8080 8443
