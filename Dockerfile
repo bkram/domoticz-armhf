@@ -1,4 +1,4 @@
-FROM registry.tikatuka.nl/tikatuka/debian-stretch-slim-armhf
+FROM registry.tikatuka.nl/tikatuka/debian-buster-slim-armhf
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 LABEL description="Domoticz beta Docker image"
 
