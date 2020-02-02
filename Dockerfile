@@ -4,11 +4,11 @@ LABEL description="Domoticz beta Docker image"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
 apt-get update && apt-get --no-install-recommends install -y python3-requests python3-paramiko python3-certifi \
-libusb-dev libpython3.7-dev libcap2-bin wget libcurl3-gnutls libcurl4 && rm -rf /var/lib/apt/lists/*  && \
-wget -O - https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC /
+libusb-dev libpython3.7-dev libcap2-bin libcurl3-gnutls libcurl4 && update-ca-certificates --fresh && rm -rf /var/lib/apt/lists/*  && \
+curl -sSL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC /
 
 WORKDIR /var/lib/domoticz
-RUN wget -O - https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC .
+RUN curl -sSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC .
 
 EXPOSE 8080 8443
 COPY root/ /
