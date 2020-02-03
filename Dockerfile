@@ -1,4 +1,4 @@
-FROM --platform=linux/arm/v7 debian:buster
+FROM --platform=linux/arm/v7 debian:buster-slim
 LABEL AUTHOR="Mark de Bruijn <mrdebruijn@gmail.com>"
 LABEL description="Domoticz Beta Docker Image with python support"
 
