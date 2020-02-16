@@ -9,7 +9,7 @@ python3-requests python3-paramiko libpython3.7-dev && rm -rf /var/lib/apt/lists/
 RUN curl -sSL https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-armhf.tar.gz | tar -xzC /
 
 WORKDIR /var/lib/domoticz
-RUN curl -sSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzC .
+RUN curl -sSL https://releases.domoticz.com/releases/beta/domoticz_linux_armv7l.tgz | tar -xzCv .
 
 EXPOSE 8080 8443
 COPY root/ /
